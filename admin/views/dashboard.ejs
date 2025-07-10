@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    h2 { color: #333; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
+    th { background-color: #f2f2f2; }
+    form { display: inline; }
+    button { padding: 5px 10px; cursor: pointer; border: none; border-radius: 4px; }
+    .block { background-color: #f44336; color: white; }
+    .unblock { background-color: #4CAF50; color: white; }
+    .delete { background-color: #9E9E9E; color: white; }
+    .search-bar { margin-bottom: 20px; }
+    .success { color: green; margin-bottom: 15px; }
+    .logout-btn {
+      margin-left: 20px;
+      text-decoration: none;
+      background: #555;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Subscribed Users</h2>
+
+  <% if (success) { %>
+    <div class="success"><%= success %></div>
+  <% } %>
+
+  <!-- 🔍 Search Bar -->
+  <div class="search-bar">
+    <form method="GET" action="/admin">
+      <input type="text" name="search" placeholder="Search by Telegram ID" value="<%= query %>" />
+      <button type="submit">Search</button>
+    </form>
+    <a href="/admin/logout" class="logout-btn">🔒 Logout</a>
+  </div>
+
+  <% if (users.length > 0) { %>
+    <table>
+      <tr>
+        <th>Telegram ID</th>
+        <th>Subscribed</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+      <% users.forEach(user => { %>
+        <tr>
+          <td><%= user.telegramId %></td>
+          <td><%= user.isSubscribed ? '✅' : '❌' %></td>
+          <td><%= user.isBlocked ? 'Blocked' : 'Active' %></td>
+          <td>
+            <form method="POST" action="/admin/<%= user.isBlocked ? 'unblock' : 'block' %>/<%= user._id %>">
+              <button type="submit" class="<%= user.isBlocked ? 'unblock' : 'block' %>">
+                <%= user.isBlocked ? 'Unblock' : 'Block' %>
+              </button>
+            </form>
+            <form method="POST" action="/admin/delete/<%= user._id %>" onsubmit="return confirm('Delete this user?');">
+              <button type="submit" class="delete">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </table>
+  <% } else { %>
+    <p>No users found.</p>
+  <% } %>
+</body>
+</html>

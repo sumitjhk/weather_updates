@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>API Key Management</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #2d89ef;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .success {
+      color: green;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Weather API Key</h2>
+
+  <% if (success) { %>
+    <div class="success"><%= success %></div>
+  <% } %>
+
+  <form method="POST" action="/admin/settings">
+    <input type="text" name="apiKey" placeholder="Enter new API key" value="<%= apiKey %>" required />
+    <button type="submit">Save</button>
+  </form>
+
+  <p><a href="/admin">← Back to Dashboard</a></p>
+</body>
+</html>
