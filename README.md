@@ -50,22 +50,22 @@ WEATHER_API_KEY is not required in .env — it can be set via the admin panel.
 
 Seed the initial admin password to access the admin panel:
 node scripts/seedAdmin.js
-
+---
 Optionally seed test users:
 node scripts/seedUsers.js
-
+---
 If needed, run cleanup/fix scripts:
 node scripts/dropOldIndex.js
 node scripts/cleanup.js
-
+---
 -----------------------------4. 🚀 Run the App------------------------------
 
 npm start
-
+---
 This will start:
---The Telegram bot (using Telegraf and cron jobs)
---The Admin panel at: http://localhost:3000/admin
-
+    The Telegram bot (using Telegraf and cron jobs)
+    The Admin panel at: http://localhost:3000/admin
+---
 
 ✨ Features
   👨‍💼 Admin Panel
@@ -73,30 +73,30 @@ This will start:
     View all users
     Block / Unblock / Delete users
     Update weather API key (dynamically cached)
-
+---
   🤖 Telegram Bot
     Subscribe users by chat ID
     Send daily weather updates at fixed time
     Uses WeatherStack API to fetch weather
     Configurable API key via admin panel
     Uses node-cron for daily jobs
-
+---
 -----------------💾 Utility Scripts-------------------- 
 Script                Description
-
+---
 seedAdmin.js —        Add initial admin password
 seedUsers.js —        Add demo Telegram users
 dropOldIndex.js —     Fix unique index errors
 cleanup.js —          Remove duplicate/null users
-
+---
 ------------------🔐 Environment Variables-------------
 
 Variable	                Description
-
+---
 TELEGRAM_BOT_TOKEN	      Token from BotFather
 MONGODB_URI	              MongoDB Atlas or local URI
 WEATHER_API_KEY	          (Optional) WeatherStack API key
-
+---
 ----------------------📦 Tech Stack--------------------
 
 **Node.js** – Backend runtime
