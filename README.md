@@ -90,6 +90,7 @@ This will start:
 
 
 Script                Description
+---
 
 seedAdmin.js —------- Add initial admin password
 seedUsers.js —------- Add demo Telegram users
