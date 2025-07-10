@@ -1,11 +1,11 @@
 # 🌤 Telegram Weather Bot with Admin Panel
-
+---
 A full-stack Node.js project featuring a Telegram bot that delivers daily weather updates to subscribed users. Includes an admin panel to manage users, API keys, and bot settings. Built for production use with MongoDB, Telegraf, Express, and EJS.
 
 ---
 
 ## 📁 Project Structure
-
+---
 WEATHER-UPDATES/
 ├── admin/           # Admin panel (EJS views, routes, server.js)
 
@@ -35,11 +35,11 @@ WEATHER-UPDATES/
 -------------------------------**## ⚙️ Setup Instructions**----------------------------------------
 ---
 -----------------------------1. 🔧 Install Dependencies---------------------
-
+---
 npm install
 
 -----------------------------2. 🧪 Create .env File-------------------------
-
+---
 Copy .env.example to .env and fill in the actual values:
 
 TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
@@ -47,7 +47,7 @@ MONGODB_URI=your_mongodb_connection_string_here
 WEATHER_API_KEY is not required in .env — it can be set via the admin panel.
 
 -----------------------------3. 🌱 Seed Admin and Users---------------------
-
+---
 Seed the initial admin password to access the admin panel:
 node scripts/seedAdmin.js
 
@@ -61,7 +61,7 @@ node scripts/dropOldIndex.js
 node scripts/cleanup.js
 
 -----------------------------4. 🚀 Run the App------------------------------
-
+---
 npm start
 
 
@@ -117,7 +117,7 @@ MONGODB_URI	              MongoDB Atlas or local URI
 WEATHER_API_KEY	          (Optional) WeatherStack API key
 
 ----------------------📦 Tech Stack--------------------
-
+---
 **Node.js** – Backend runtime
 
 **Express.js** – Web server for admin panel
@@ -137,7 +137,7 @@ WEATHER_API_KEY	          (Optional) WeatherStack API key
 **dotenv** – Secure environment variable management
 
 ----------------------🌐 Deployment----------------------
-
+---
 
 This project is deployable to platforms like Railway.
 
@@ -153,13 +153,13 @@ Steps to deploy:
 
 
 -------------------------------------📄 License---------------------------------------------
-
+---
 
 MIT License — Free to use, modify, and deploy.
 
 
 --------------------✍️ Author--------------------
-
+---
 
 Sumit Saurabh
 📧 [sumit.jhk@gmail.com] (optional)
