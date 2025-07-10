@@ -45,6 +45,7 @@ Copy .env.example to .env and fill in the actual values:
 TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
 MONGODB_URI=your_mongodb_connection_string_here
 WEATHER_API_KEY is not required in .env — it can be set via the admin panel.
+---
 -----------------------------3. 🌱 Seed Admin and Users---------------------
 
 Seed the initial admin password to access the admin panel:
