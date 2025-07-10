@@ -92,19 +92,19 @@ This will start:
 Script --------------- Description
 ---
 
-seedAdmin.js —------- Add initial admin password
+seedAdmin.js —-------  Add initial admin password
 
 
-seedUsers.js —------- Add demo Telegram users
+seedUsers.js —-------  Add demo Telegram users
 
 
-dropOldIndex.js ----- Fix unique index errors
+dropOldIndex.js -----  Fix unique index errors
 
 
-cleanup.js —--------- Remove duplicate/null users
+cleanup.js —---------  Remove duplicate/null users
 
 ------------------🔐 Environment Variables-------------
-
+---
 
 Variable	                Description
 ---
