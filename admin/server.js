@@ -53,20 +53,38 @@ function checkAuth(req, res, next) {
   res.redirect('/admin/login');
 }
 
+//✅ Routes
+// Root redirect to login
+app.get("/", (req, res) => {
+  res.redirect("/admin/login");
+});
+
 // ✅ Login Routes
 app.get('/admin/login', (req, res) => {
   res.render('login', { error: null });
 });
 
+// Login Submission
 app.post('/admin/login', async (req, res) => {
   const { password } = req.body;
-  const isPasswordValid = await bcrypt.compare(password, ADMIN_USER.passwordHash);
 
-  if (isPasswordValid) {
-    req.session.user = ADMIN_USER.username;
-    res.redirect('/admin');
-  } else {
-    res.render('login', { error: "Invalid password." });
+  // Check if both password and hash exist
+  if (!password || !ADMIN_USER.passwordHash) {
+    return res.render('login', { error: "Missing password or configuration." });
+  }
+
+  try {
+    const isPasswordValid = await bcrypt.compare(password, ADMIN_USER.passwordHash);
+
+    if (isPasswordValid) {
+      req.session.user = ADMIN_USER.username;
+      res.redirect('/admin');
+    } else {
+      res.render('login', { error: "Invalid password." });
+    }
+  } catch (err) {
+    console.error("❌ Login error:", err);
+    res.render('login', { error: "Internal server error." });
   }
 });
 
